@@ -7,7 +7,8 @@ _.extend( MeteorSettings, {
 
     if (options === MeteorSettings.REQUIRED) {
 
-      if (! Meteor.settings) {
+      if (! Meteor.settings /* undefined on client */ ||
+          _.size(Meteor.settings) === 0 /* empty on server */ ) {
 
         throw new Meteor.Error("settings-required", "--settings or METEOR_SETTINGS required.");
       }
@@ -19,9 +20,12 @@ _.extend( MeteorSettings, {
     // should satisfy for most settings usage patterns.
     // (underscore does not support deep/recursive copy.)
 
-    if (defaultsMap.public) {
+    if (! Meteor.settings.public) Meteor.settings.public = {}
+
+    if ( defaultsMap.public ) {
       _.defaults( Meteor.settings.public, defaultsMap.public );
     }
+
     _.defaults( Meteor.settings, defaultsMap );
   }
 });
