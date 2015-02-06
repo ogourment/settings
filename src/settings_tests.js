@@ -1,3 +1,5 @@
+// Run with `example> meteor test-packages` and open `localhost:3000`
+
 var _expectRequiredException = function(test, defaultsMap) {
 
   test.throws(
