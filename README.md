@@ -1,9 +1,16 @@
 
 # Reliably initialize `Meteor.settings`
 
-On the server (preferably) or the client, call `MeteorSettings.setDefaults(defaultSettings)` to populate the `Meteor.settings` object with sensible defaults. If you do this in all the source files where you access `Meteor.settings`, this will ensure your app does not crash when accessing a setting, or avoid duplicating the code that checks if the settings are not empty.
+This package provides a `MeteorSettings` object with only one function: `setDefaults`. This function works on the client or server.
 
-If you can't provide sensible defaults for your user, and they forgot to specify the `settings.json` file, pass `MeteorSettings.REQUIRED` as the second argument.
+## Installation:
+```
+meteor add ogourment:settings
+```
+
+## Provide sensible defaults
+
+Call `MeteorSettings.setDefaults(defaultSettings)` to populate the `Meteor.settings` object with sensible defaults for your app. If you do this in all the source files where you access `Meteor.settings`, this will ensure your app does not crash when accessing a setting, or avoid duplicating the code that checks if the settings are not empty.
 
 Example:
 ```
@@ -14,20 +21,24 @@ MeteorSettings.setDefaults({
 });
 ```
 
+## Alert the user when they forgot to provide settings
+
+Sometimes, there are no sensible defaults. In that case, you want to alert the developer when he forgot to provide a `settings.json` file. This usually only makes sense on the server. In this case, pass `MeteorSettings.REQUIRED` as the second argument. A Meteor.Error will be thrown and the server will crash (nicely).
+
 Example:
 ```
 // I can provide a title for you, but not an author or anything else!
 MeteorSettings.setDefaults({
   public: {
     book: { title: "My Story" }
-  }, MeteorSettings.REQUIRED
-});
+  }
+}, MeteorSettings.REQUIRED);
 ```
 
-A basic `example` [app](http://github.com/ogourment/settings/blob/master/app/example.js) is provided.
+## Troubleshooting
 
-Also look at the [tests](https://github.com/ogourment/settings/blob/master/src/settings_tests.js) to see how this works.
-
-If you have questions, make sure to read the [official doc](http://docs.meteor.com/#/full/meteor_settings) first.
+1. Make sure to read the [official doc on Meteor.settings](http://docs.meteor.com/#/full/meteor_settings).
+1. A basic `example` [app](http://github.com/ogourment/settings/blob/master/app/example.js) is provided.
+1. Look at the [tests](https://github.com/ogourment/settings/blob/master/src/settings_tests.js) to see what is supported.
 
 Feedback welcome! Please send me an email ogourment @ smarterportal.com, or create an issue.
