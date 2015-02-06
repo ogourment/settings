@@ -1,6 +1,4 @@
 
-_.mergeDefaults = Npm.require('merge-defaults');
-
 MeteorSettings = { REQUIRED: 1 };
 
 _.extend( MeteorSettings, {
@@ -17,6 +15,13 @@ _.extend( MeteorSettings, {
 
     if (! Meteor.settings) Meteor.settings = {};
 
-    _.mergeDefaults(Meteor.settings, defaultsMap);
+    // The defaults settings is not fully recursive, but
+    // should satisfy for most settings usage patterns.
+    // (underscore does not support deep/recursive copy.)
+
+    if (defaultsMap.public) {
+      _.defaults( Meteor.settings.public, defaultsMap.public );
+    }
+    _.defaults( Meteor.settings, defaultsMap );
   }
 });

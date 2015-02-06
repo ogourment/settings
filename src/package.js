@@ -6,8 +6,6 @@ Package.describe({
   git: 'https://github.com/ogourment/settings.git'
 });
 
-Npm.depends({'merge-defaults':'0.2.1'});
-
 Package.on_use(function (api) {
 
   api.use('underscore');
