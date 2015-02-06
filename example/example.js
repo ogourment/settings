@@ -1,6 +1,6 @@
 if (Meteor.isClient) {
 
-  Session.setDefault('counter', Meteor.settings.public.counterDefaultValue);
+  Session.setDefault('counter', 0);
 
   Template.hello.helpers({
     counter: function () {
@@ -11,8 +11,7 @@ if (Meteor.isClient) {
   Template.hello.events({
     'click button': function () {
       // increment the counter when button is clicked
-      Session.set('counter', Session.get('counter')
-        + Meteor.settings.public.counterIncrement);
+      Session.set('counter', Session.get('counter') + 1);
     }
   });
 }
@@ -20,11 +19,5 @@ if (Meteor.isClient) {
 if (Meteor.isServer) {
   Meteor.startup(function () {
     // code to run on server at startup
-    MeteorSettings.setDefaults({
-      public: {
-        counterDefaultValue: 0,
-        counterIncrement: 10
-      }
-    });
   });
 }
