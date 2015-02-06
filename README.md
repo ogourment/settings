@@ -5,9 +5,28 @@ On the server (preferably) or the client, call `MeteorSettings.setDefaults(defau
 
 If you can't provide sensible defaults for your user, and they forgot to specify the `settings.json` file, pass `MeteorSettings.REQUIRED` as the second argument.
 
-A basic `example` [app](http://github.com/ogourment/settings/blob/app/example.js) is provided.
+Example:
+```
+MeteorSettings.setDefaults({
+  public: {
+    book: { title: "My Story" }
+  }
+});
+```
 
-Also look at the [tests](https://github.com/ogourment/settings/blob/src/settings_tests.js) to see how this works.
+Example:
+```
+// I can provide a title for you, but not an author or anything else!
+MeteorSettings.setDefaults({
+  public: {
+    book: { title: "My Story" }
+  }, MeteorSettings.REQUIRED
+});
+```
+
+A basic `example` [app](http://github.com/ogourment/settings/blob/master/app/example.js) is provided.
+
+Also look at the [tests](https://github.com/ogourment/settings/blob/master/src/settings_tests.js) to see how this works.
 
 If you have questions, make sure to read the [official doc](http://docs.meteor.com/#/full/meteor_settings) first.
 
