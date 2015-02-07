@@ -164,3 +164,20 @@ Tinytest.add("Merge server with public", function (test) {
 
   test.equal( Meteor.settings, expected );
 });
+
+Tinytest.add("Merge circular defaults", function (test) {
+
+  Meteor.settings = {};
+
+  var defaults = {
+    prop1: {}
+  };
+  defaults.prop1.prop2 = defaults;
+
+  test.throws(
+    function () {
+      MeteorSettings.setDefaults( defaults );
+    },
+    'circular-defaults'
+  )
+});
