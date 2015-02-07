@@ -1,12 +1,12 @@
-[![Build Status](https://travis-ci.org/ogourment/settings.svg?branch=master)](https://travis-ci.org/ogourment/settings)
-
 ![Never forget --settings.json again!](https://raw.githubusercontent.com/ogourment/settings/master/server_crash_if_no_settings_json.gif)
+
+[![Build Status](https://travis-ci.org/ogourment/settings.svg?branch=master)](https://travis-ci.org/ogourment/settings)
 
 # Reliably initialize `Meteor.settings`
 
 This package provides a `MeteorSettings` object with only one function: `setDefaults`. This function works on the client or server.
 
-## Installation:
+## Installation
 ```
 meteor add ogourment:settings
 ```
