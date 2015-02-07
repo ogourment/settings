@@ -1,4 +1,4 @@
-![Never forget --settings.json again!](https://raw.githubusercontent.com/ogourment/settings/master/server_crash_if_no_settings_json.gif)
+![Never forget --settings.json again!](https://raw.githubusercontent.com/ogourment/settings/master/doc/server_crash_if_no_settings_json.gif)
 
 [![Build Status](https://travis-ci.org/ogourment/settings.svg?branch=master)](https://travis-ci.org/ogourment/settings)
 
@@ -41,7 +41,7 @@ MeteorSettings.setDefaults({
 }, MeteorSettings.REQUIRED);
 ```
 ...will result in:
-![settings-required Meteor.Error](settings-required-error-screenshot.png)
+![settings-required Meteor.Error](./doc/settings-required-error-screenshot.png)
 
 
 ## Troubleshooting
