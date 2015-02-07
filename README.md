@@ -51,3 +51,5 @@ MeteorSettings.setDefaults({
 1. Look at the [tests](https://github.com/ogourment/settings/blob/master/src/settings_tests.js) to see what is supported.
 
 Feedback welcome! Please send me an email ogourment @ smarterportal.com, or create an issue.
+
+Thanks to [Sam](https://github.com/samhatoum) for the idea.
