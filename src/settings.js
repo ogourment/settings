@@ -10,7 +10,7 @@ _.extend( MeteorSettings, {
       if (! Meteor.settings /* undefined on client */ ||
           _.size(Meteor.settings) === 0 /* empty on server */ ) {
 
-        throw new Meteor.Error("settings-required", "--settings or METEOR_SETTINGS required.");
+        throw new Error("--settings or METEOR_SETTINGS required.");
         // Note: it might also be the case that `settings.json` is empty... but it's unlikely.
       }
     }
@@ -35,8 +35,7 @@ var __deepDefaults = function (settings, node) {
 
     // watch for circular reference
     if (_.indexOf(_nodes, node) >= 0) {
-      throw new Meteor.Error("circular-defaults",
-        "Circular reference found at: " + key + ":" + node);
+      throw new Error("Circular reference found at: " + key + ":" + node);
     }
     _nodes.push(node);
 

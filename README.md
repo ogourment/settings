@@ -29,7 +29,7 @@ MeteorSettings.setDefaults({
 
 ## Alert the user when they forgot to provide settings
 
-Sometimes, there are no sensible defaults. In that case, you want to alert the developer when he forgot to provide a `settings.json` file. This usually only makes sense on the server. In this case, pass `MeteorSettings.REQUIRED` as the second argument. A `Meteor.Error` will be thrown and the server will crash (nicely).
+Sometimes, there are no sensible defaults. In that case, you want to alert the developer when he forgot to provide a `settings.json` file. This usually only makes sense on the server. In this case, pass `MeteorSettings.REQUIRED` as the second argument. An `Error` will be thrown and the server will crash (nicely).
 
 Example:
 ```javascript
@@ -41,7 +41,7 @@ MeteorSettings.setDefaults({
 }, MeteorSettings.REQUIRED);
 ```
 ...will result in:
-![settings-required Meteor.Error](./doc/settings-required-error-screenshot.png)
+![settings-required Error](./doc/settings-required-error-screenshot.png)
 
 
 ## Troubleshooting

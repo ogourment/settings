@@ -6,7 +6,7 @@ var _expectRequiredException = function(test, defaultsMap) {
     function () {
       MeteorSettings.setDefaults( defaultsMap, MeteorSettings.REQUIRED );
     },
-    'settings-required'
+    /[Ss][Ee][Tt][Tt][Ii][Nn][Gg][Ss].*[Rr][Ee][Qq][Uu][Ii][Rr][Ee][Dd]/
   )
 }
 
@@ -244,6 +244,6 @@ Tinytest.add("Merge circular defaults", function (test) {
     function () {
       MeteorSettings.setDefaults( defaults );
     },
-    'circular-defaults'
+    /[Cc][Ii][Rr][Cc][Uu][Ll][Aa][Rr]/
   )
 });
