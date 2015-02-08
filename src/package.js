@@ -2,7 +2,7 @@
 Package.describe({
   name: 'ogourment:settings',
   summary: 'Reliably initialize Meteor.settings.',
-  version: '0.0.2',
+  version: '1.0.0',
   git: 'https://github.com/ogourment/settings.git'
 });
 

@@ -1,7 +1,8 @@
 
-0.0.2 (2015-02-08)
+1.0.0 (2015-02-08)
 ---
 
+- Handle Date and Arrays
 - Added deep/recursive defaults setting:
   If `Meteor.settings = { a: { b: 1 } }`
   And `defaults = { a: { c: 2 } }`
