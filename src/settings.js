@@ -35,7 +35,8 @@ var __deepDefaults = function (settings, node) {
 
     // watch for circular reference
     if (_.indexOf(_nodes, node) >= 0) {
-      throw new Meteor.Error("circular-defaults", "Circular reference found at: " + node.toString());
+      throw new Meteor.Error("circular-defaults",
+        "Circular reference found at: " + key + ":" + node);
     }
     _nodes.push(node);
 
