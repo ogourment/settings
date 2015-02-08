@@ -165,6 +165,72 @@ Tinytest.add("Merge server with public", function (test) {
   test.equal( Meteor.settings, expected );
 });
 
+var date0 = new Date();
+
+var settings0 = {
+  public : {
+    boolean_true: true,
+    boolean_false: false,
+    date: date0,
+    string: "string",
+    array: ["1", "2"]
+  }
+};
+
+Tinytest.add("Merge various types with empty defaults", function (test) {
+
+  Meteor.settings = _.clone( settings0 );
+
+  MeteorSettings.setDefaults( {} );
+
+  test.equal( Meteor.settings, settings0 );
+});
+
+Tinytest.add("Merge empty with various defaults types", function (test) {
+
+  Meteor.settings = {};
+
+  var defaults = _.clone( settings0 );
+
+  MeteorSettings.setDefaults( defaults );
+
+  test.equal( Meteor.settings, settings0 );
+});
+
+Tinytest.add("Merge various defaults types, same keys and defaults", function (test) {
+
+  Meteor.settings = _.clone( settings0 );
+
+  var defaults = _.clone( settings0 );
+
+  MeteorSettings.setDefaults( defaults );
+
+  test.equal( Meteor.settings, settings0 );
+});
+
+var date1 = date0 + 1;
+
+var settings1 = {
+  public : {
+    boolean_true: false,
+    boolean_false: true,
+    date: date1,
+    string: "string",
+    array: ["1", "2"]
+  }
+};
+
+Tinytest.add("Merge various defaults types, same keys, different defaults", function (test) {
+
+  Meteor.settings = _.clone( settings0 );
+
+  var defaults = _.clone( settings1 );
+
+  MeteorSettings.setDefaults( defaults );
+
+  test.equal( Meteor.settings, settings0 );
+});
+
 Tinytest.add("Merge circular defaults", function (test) {
 
   Meteor.settings = {};

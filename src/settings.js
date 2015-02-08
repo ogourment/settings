@@ -15,11 +15,10 @@ _.extend( MeteorSettings, {
       }
     }
 
-    if (! Meteor.settings) Meteor.settings = {};
+    Meteor.settings = Meteor.settings || {};
+    Meteor.settings.public = Meteor.settings.public || {};
 
     _deepDefaults(Meteor.settings, defaultsMap);
-
-    if (! Meteor.settings.public) Meteor.settings.public = {};
   }
 });
 
@@ -41,11 +40,16 @@ var __deepDefaults = function (settings, node) {
     _nodes.push(node);
 
     // deep defaults
-    if (node instanceof Object) {
-      if (! settings[key]) settings[key] = {};
+    if ((node instanceof Object) &&
+      ! (node instanceof Date) &&
+      ! (node.constructor === Array)) {
+
+      settings[key] = settings[key] || {};
+
       __deepDefaults(settings[key], node);
     }
-    else
-      if (! settings[key]) settings[key] = node;
+    else {
+      settings[key] = settings[key] || node;
+    }
   });
 }
