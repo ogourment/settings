@@ -6,4 +6,4 @@ before_install:
   - "wget https://raw.github.com/arunoda/travis-ci-meteor-packages/master/start_test.js"
   - "wget https://raw.github.com/arunoda/travis-ci-meteor-packages/master/phantom_runner.js"
 script:
-  make all
+  - "make all"
