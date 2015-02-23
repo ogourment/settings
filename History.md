@@ -1,4 +1,9 @@
 
+0.1.1 (2015-02-23)
+---
+
+- Package is now automatically published after successful tests in Travis-ci
+
 0.1.0 (2015-02-08)
 ---
 
