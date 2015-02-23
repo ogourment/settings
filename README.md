@@ -1,8 +1,6 @@
 ![Never forget --settings.json again!](https://raw.githubusercontent.com/ogourment/settings/master/doc/server_crash_if_no_settings_json.gif)
 
-[![Build Status](https://travis-ci.org/ogourment/settings.svg?branch=master)](https://travis-ci.org/ogourment/settings)
-
-# Reliably initialize `Meteor.settings`
+# Reliably initialize `Meteor.settings` [![Build Status](https://travis-ci.org/ogourment/settings.svg?branch=master)](https://travis-ci.org/ogourment/settings)
 
 This package provides a `MeteorSettings` object with only one function: `setDefaults`. This function works on the client or server.
 

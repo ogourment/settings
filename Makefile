@@ -1,3 +1,6 @@
 test:
 	node start_test.js
-.PHONY: test
+publish:
+	cd src
+	meteor publish
+.PHONY: test publish

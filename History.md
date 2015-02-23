@@ -1,5 +1,10 @@
 
-1.0.0 (2015-02-08)
+0.1.0 (2015-02-08)
+---
+
+- Replaced `Meteor.Error` with `Error` as per [Style Guide](https://github.com/meteor/meteor/wiki/Meteor-Style-Guide#error-objects).
+
+0.0.2 (2015-02-08)
 ---
 
 - Handle Date and Arrays
