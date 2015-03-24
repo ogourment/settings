@@ -27,7 +27,7 @@ var _nodes;
 var _deepDefaults = function (settings, map) {
   _nodes = [];
   return __deepDefaults(settings, map);
-}
+};
 
 var __deepDefaults = function (settings, node) {
 
@@ -40,9 +40,9 @@ var __deepDefaults = function (settings, node) {
     _nodes.push(node);
 
     // deep defaults
+    var isArray = (node.constructor === Array);
     if ((node instanceof Object) &&
-      ! (node instanceof Date) &&
-      ! (node.constructor === Array)) {
+      ! (node instanceof Date || isArray)) {
 
       settings[key] = settings[key] || {};
 
@@ -52,4 +52,4 @@ var __deepDefaults = function (settings, node) {
       settings[key] = settings[key] || node;
     }
   });
-}
+};

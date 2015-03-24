@@ -7,8 +7,8 @@ var _expectRequiredException = function(test, defaultsMap) {
       MeteorSettings.setDefaults( defaultsMap, MeteorSettings.REQUIRED );
     },
     /[Ss][Ee][Tt][Tt][Ii][Nn][Gg][Ss].*[Rr][Ee][Qq][Uu][Ii][Rr][Ee][Dd]/
-  )
-}
+  );
+};
 
 Tinytest.add("Not required, no Meteor.settings", function (test) {
 
@@ -91,7 +91,7 @@ Tinytest.add("Merge public with public", function (test) {
 
   var expected = {
     public: { value: 10, other: 3 }
-  }
+  };
 
   test.equal( Meteor.settings, expected );
 });
@@ -108,7 +108,7 @@ Tinytest.add("Merge public with different public", function (test) {
 
   var expected = {
     public: { value: 2, other: 3 }
-  }
+  };
 
   test.equal( Meteor.settings, expected );
 });
@@ -127,7 +127,7 @@ Tinytest.add("Merge public with public and server", function (test) {
   var expected = {
     serverValue: 1,
     public: { value: 10, other: 3 }
-  }
+  };
 
   test.equal( Meteor.settings, expected );
 });
@@ -160,7 +160,7 @@ Tinytest.add("Merge server with public", function (test) {
   var expected = {
     serverValue: 1,
     public: { value: 2, other: 3 }
-  }
+  };
 
   test.equal( Meteor.settings, expected );
 });
@@ -245,5 +245,5 @@ Tinytest.add("Merge circular defaults", function (test) {
       MeteorSettings.setDefaults( defaults );
     },
     /[Cc][Ii][Rr][Cc][Uu][Ll][Aa][Rr]/
-  )
+  );
 });
