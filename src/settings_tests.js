@@ -247,3 +247,15 @@ Tinytest.add("Merge circular defaults", function (test) {
     /[Cc][Ii][Rr][Cc][Uu][Ll][Aa][Rr]/
   );
 });
+
+Tinytest.add("Two identical values", function (test) {
+
+  Meteor.settings = {};
+
+  var defaults = {
+    prop1: 1,
+    prop2: 1
+  };
+
+  MeteorSettings.setDefaults( defaults );
+});

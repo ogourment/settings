@@ -33,16 +33,16 @@ var __deepDefaults = function (settings, node) {
 
   _.each(node, function (node, key) {
 
-    // watch for circular reference
-    if (_.indexOf(_nodes, node) >= 0) {
-      throw new Error("Circular reference found at: " + key + ":" + node);
-    }
-    _nodes.push(node);
-
     // deep defaults
     var isArray = (node.constructor === Array);
     if ((node instanceof Object) &&
       ! (node instanceof Date || isArray)) {
+
+      // watch for circular reference
+      if (_.indexOf(_nodes, node) >= 0) {
+        throw new Error("Circular reference found at: " + key + ":" + node);
+      }
+      _nodes.push(node);
 
       settings[key] = settings[key] || {};
 

@@ -1,4 +1,9 @@
 
+0.1.2 (2015-03-24)
+---
+
+- Fixed: Two different nodes with the same value caused a circular reference.
+
 0.1.1 (2015-02-23)
 ---
 
