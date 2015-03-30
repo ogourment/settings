@@ -1,4 +1,9 @@
 
+0.1.3 (2015-03-29)
+---
+
+- Fixed: 'false' setting was overriden by 'true' default. Thanks to @adeubank
+
 0.1.2 (2015-03-24)
 ---
 
