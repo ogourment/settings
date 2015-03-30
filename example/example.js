@@ -4,7 +4,8 @@ if (Meteor.isClient) {
   MeteorSettings.setDefaults({
     public: {
       initialCounter: 0,
-      counterIncrement: 1
+      counterIncrement: 1,
+      doIncrement: true
     }
   });
 
@@ -18,9 +19,11 @@ if (Meteor.isClient) {
 
   Template.hello.events({
     'click button': function () {
-      // increment the counter when button is clicked
-      Session.set('counter', Session.get('counter') +
+      if (Meteor.settings.public.doIncrement) {
+        // increment the counter when button is clicked
+        Session.set('counter', Session.get('counter') +
         Meteor.settings.public.counterIncrement);
+      }
     }
   });
 }

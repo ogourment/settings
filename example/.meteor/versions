@@ -31,7 +31,7 @@ minimongo@1.0.6
 mobile-status-bar@1.0.2
 mongo@1.0.11
 observe-sequence@1.0.4
-ogourment:settings@1.0.0
+ogourment:settings@0.1.2
 ordered-dict@1.0.2
 random@1.0.2
 reactive-dict@1.0.5
