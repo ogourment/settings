@@ -49,7 +49,11 @@ var __deepDefaults = function (settings, node) {
       __deepDefaults(settings[key], node);
     }
     else {
-      settings[key] = settings[key] || node;
+      // if the value at key is undefined use the default node passed in
+      if (_.isUndefined(settings[key]))
+        settings[key] = node;
+      else
+        settings[key] = settings[key];
     }
   });
 };

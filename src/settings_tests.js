@@ -259,3 +259,17 @@ Tinytest.add("Two identical values", function (test) {
 
   MeteorSettings.setDefaults( defaults );
 });
+
+Tinytest.add("Do not overide a false property", function (test) {
+
+  Meteor.settings = { public: { useUniqueBlogPostsPath: false } };
+
+  var expected = _.clone( Meteor.settings );
+
+  var defaults = { public: { useUniqueBlogPostsPath: true } };
+
+  MeteorSettings.setDefaults( defaults );
+
+  test.equal( Meteor.settings, expected );
+
+});
