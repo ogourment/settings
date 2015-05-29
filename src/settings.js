@@ -1,11 +1,21 @@
 
-MeteorSettings = { REQUIRED: 1 };
+MeteorSettings = { REQUIRED: 1, REQUIRED_IN_PROD: 2 };
 
 _.extend( MeteorSettings, {
 
   setDefaults: function (defaultsMap, options) {
 
-    if (options === MeteorSettings.REQUIRED) {
+     var settingsRequired =
+      (options === MeteorSettings.REQUIRED);
+
+     if (Meteor.isServer) {
+
+       settingsRequired |=
+        (process.env.NODE_ENV === "production" &&
+          options === MeteorSettings.REQUIRED_IN_PROD);
+     }
+
+     if (settingsRequired) {
 
       if (! Meteor.settings /* undefined on client */ ||
           _.size(Meteor.settings) === 0 /* empty on server */ ) {

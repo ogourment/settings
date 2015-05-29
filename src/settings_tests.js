@@ -24,6 +24,13 @@ Tinytest.add("Required, no Meteor.settings", function (test) {
   _expectRequiredException( test, {} );
 });
 
+Tinytest.add("Required, no Meteor.settings, REQUIRED_IN_PROD", function (test) {
+
+  Meteor.settings = null;
+
+  MeteorSettings.setDefaults( {}, MeteorSettings.REQUIRED_IN_PROD );
+});
+
 Tinytest.add("Required, no Meteor.settings, with defaults", function (test) {
 
   Meteor.settings = null;

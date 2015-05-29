@@ -28,17 +28,17 @@ MeteorSettings.setDefaults({
 ## Alert the user when no settings were provided
 
 Sometimes, there are no sensible defaults. In that case, you want to alert the developer when he forgot to provide a `settings.json` file. This usually only makes sense on the server. In this case, pass `MeteorSettings.REQUIRED` as the second argument. An `Error` will be thrown and the server will crash (nicely).
+If you want the settings file to *only* be required in production, pass `MeteorSettings.REQUIRED_IN_PROD`.
 
 Example:
 ```javascript
-// I can provide a title for you, but not an author or anything else!
 MeteorSettings.setDefaults({
   public: {
     book: { title: "My Story" }
   }
-}, MeteorSettings.REQUIRED);
+}, MeteorSettings.REQUIRED_IN_PROD);
 ```
-...will result in:
+...will result in the default "My Story" book title to be used. This will be true in development and the clients. On the server and when deployed on meteor.com or in any other production environment, it will fail with:
 ![settings-required Error](./doc/settings-required-error-screenshot.png)
 
 
